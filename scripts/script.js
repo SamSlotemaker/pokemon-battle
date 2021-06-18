@@ -6,7 +6,7 @@ const pokemonMovesContainer = document.getElementById('pokemon_moves')
 const pokemonTopHPelement = document.querySelector('#pokemon_top_stats .hp span')
 const pokemonBottomHPelement = document.querySelector('#pokemon_bottom_stats .hp span')
 const textMessage = document.querySelector('.options_information')
-
+const maxPokemonLength = 879
 let pokemonTopHP = 100;
 let pokemonBottomHP = 100;
 
@@ -17,8 +17,8 @@ main()
 async function main() {
     //get pokemon data from api
     console.log(await getPokemon(''))
-    let randomPokemonOne = Math.floor(Math.random() * 897 + 1)
-    let randomPokemonTwo = Math.floor(Math.random() * 897 + 1)
+    let randomPokemonOne = Math.floor(Math.random() * maxPokemonLength + 1)
+    let randomPokemonTwo = Math.floor(Math.random() * maxPokemonLength + 1)
     const pokemonTop = await getPokemon(randomPokemonOne)
     const pokemonBottom = await getPokemon(randomPokemonTwo)
     //get first 4 moves
