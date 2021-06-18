@@ -1,0 +1,230 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Pokemon Classic';
+    src: url('fonts/Pokemon-Classic.eot');
+    src: url('fonts/Pokemon-Classic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Pokemon-Classic.woff2') format('woff2'),
+        url('fonts/Pokemon-Classic.woff') format('woff');
+}
+
+:root {
+    --bgc: rgb(248, 248, 248);
+    --size: clamp(430px, 85vmin, 800px)
+}
+
+main {
+    font-family: 'Pokemon Classic';
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+button {
+    font-family: 'Pokemon Classic';
+    background-color: transparent;
+    border: none;
+}
+
+#battle_container {
+    padding: 1em;
+    width: var(--size);
+    height: var(--size);
+    background-color: var(--bgc);
+}
+
+/* pokemon container */
+.pokemon_container {
+    width: 100%;
+    height: 33%;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    overflow: hidden;
+}
+
+/* pokemon img */
+.pokemon_image_container {
+    height: 130%;
+    overflow: hidden;
+}
+
+.pokemon_container img {
+    transition: all 1s ease-out;
+    height: 100%;
+}
+
+#pokemon_bottom_stats {
+    order: 1;
+}
+
+#pokemon_options_container {
+    height: 33%;
+    border: 4px black solid;
+    position: relative;
+}
+
+/* attack info */
+#pokemon_options_container .options_information {
+    background-color: var(--bgc);
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    display: none;
+    position: absolute;
+    padding: 1em;
+}
+
+#pokemon_options_container form {
+    height: 33%;
+    border-left: 4px black solid;
+    display: grid;
+    width: 50%;
+    height: 100%;
+}
+
+/* options */
+#pokemon_options_container form button {
+    position: relative;
+}
+
+#pokemon_options_container form button:hover {
+    cursor: pointer;
+    font-weight: 900;
+}
+
+#pokemon_options_container form button:hover::before {
+    content: '';
+    width: 1em;
+    height: 1em;
+    background-color: black;
+    position: absolute;
+    left: 1em;
+    top: calc(50% - .5em);
+    clip-path: polygon(0 0, 0% 100%, 100% 50%);
+
+}
+
+#pokemon_options_container form:nth-of-type(1) {
+    display: none;
+    margin-left: auto;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#pokemon_options_container form:nth-of-type(2) {
+
+    margin-left: auto;
+    grid-template-columns: 1fr;
+}
+
+/* POKEMON STATS */
+
+/* level */
+.pokemon_stats .level {
+    text-align: center;
+}
+
+/* hp */
+.pokemon_stats .hp {
+    display: flex;
+    margin: .5em;
+    padding: .5em;
+    align-items: center;
+}
+
+#pokemon_top_stats .hp {
+    border-left: 5px solid black;
+    border-bottom: 5px solid black;
+}
+
+#pokemon_bottom_stats .hp {
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+}
+
+#pokemon_top_stats .hp span {
+    --hp: 100%;
+}
+
+#pokemon_bottom_stats .hp span {
+    --hp: 100%;
+}
+
+.pokemon_stats .hp span {
+    position: relative;
+    display: block;
+    flex-grow: 1;
+    margin: 0em 1em;
+    border-radius: 1000em;
+    background-color: transparent;
+    border: black solid 2px;
+    z-index: 2;
+    height: 1em;
+}
+
+.pokemon_stats .hp span::before {
+    content: "";
+    position: absolute;
+    width: var(--hp);
+    border-radius: 1000em;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: green;
+    transition: all .5s ease-out;
+}
+
+img.attack {
+    animation: attack 1s ease-in-out;
+}
+
+img.getHit {
+    animation: getHit 1s ease-in-out;
+}
+
+
+@keyframes attack {
+    0% {
+        transform: rotate(10deg) translate(10%)
+    }
+
+    20% {
+        transform: rotate(5deg) translate(0%)
+    }
+
+    50% {
+        transform: rotate(-10deg) translate(-10%)
+    }
+
+    80% {
+        transform: rotate(5deg) translate(0%)
+    }
+
+    90% {
+        transform: rotate(0deg) translate(0%, -10%)
+    }
+
+    100% {
+        transform: rotate(0deg) translate(0%)
+    }
+}
+
+
+@keyframes getHit {
+    0% {
+        transform: rotate(10deg) translate(0%, 10%)
+    }
+
+    50% {
+        transform: rotate(0deg) translate(0%, 5%)
+    }
+
+    100% {
+        transform: rotate(0deg) translate(0%)
+    }
+}

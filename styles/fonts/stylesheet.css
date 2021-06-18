@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Pokemon Classic';
+    src: url('Pokemon-Classic.eot');
+    src: url('Pokemon-Classic.eot?#iefix') format('embedded-opentype'),
+        url('Pokemon-Classic.woff2') format('woff2'),
+        url('Pokemon-Classic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
