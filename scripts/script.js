@@ -16,8 +16,11 @@ main()
 //main logic
 async function main() {
     //get pokemon data from api
-    const pokemonTop = await getPokemon('bulbasaur')
-    const pokemonBottom = await getPokemon('charmeleon')
+    console.log(await getPokemon(''))
+    let randomPokemonOne = Math.floor(Math.random() * 897 + 1)
+    let randomPokemonTwo = Math.floor(Math.random() * 897 + 1)
+    const pokemonTop = await getPokemon(randomPokemonOne)
+    const pokemonBottom = await getPokemon(randomPokemonTwo)
     //get first 4 moves
     const moves = pokemonBottom.moves.filter((item, index) => index < 4)
 
